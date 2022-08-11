@@ -7,6 +7,14 @@
 		<style>
 			ul {list-style-type:none;}
 			ul li{marign-bottom:20px;}
+
+			.text-red {
+				color: red;
+			}
+
+			.text-blue {
+				color: blue;
+			}
 		</style>
 	</head>
 	<body>
@@ -15,7 +23,8 @@
 		<ul>
 			<li v-for="part in scene">
 				<span>{{part.character}}</span>
-				<p>{{part.dialogue}}</p>
+				<p class="text-red" v-if="part.character == 'MACBETH'" style="white-space:pre-wrap;">{{part.dialogue}}</p>
+				<p class="text-blue" v-else style="white-space:pre-wrap;">{{part.dialogue}}</p>
 			</li>
 		</ul>
 	</div>

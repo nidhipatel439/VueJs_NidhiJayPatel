@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>J1 Practice</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.formfield{margin-bottom:10px;}
+		</style>
+	</head>
+	<body>
+	<p>The New CCC (Canadian Calorie Counting) <a href="https://cemc.math.uwaterloo.ca/contests/computing/past_ccc_contests/2006/stage1/juniorEn.pdf">from the J1 problem hosted by the CCC.</a></p>
+    <h3>Welcome to Chip’s Fast Food Emporium</h3>
+	<div id="app">
+		<div class="formfield">
+			<label>burger choice: <label> 
+            <select v-model="choice_burger">
+                <option value="461">Cheeseburger</option>
+                <option value="431">Fish Burger</option>
+                <option value="420">Veggie Burger</option>
+                <option value="0">no burger</option>
+            </select>
+		</div>
+		<div class="formfield">
+			<label>drink choice: <label> 
+                <select v-model="choice_drink">
+                    <option value="130">Soft drink</option>
+                    <option value="160">Orange Juice</option>
+                    <option value="118">Milk</option>
+                    <option value="0">No drink</option>
+                </select>
+		</div>
+		<div class="formfield">
+			<label>side order choice: <label>
+            <select v-model="choice_side">
+                <option value="100">Fries</option>
+                <option value="57">Baked Potato</option>
+                <option value="70">Chef Salad</option>
+                <option value="0">no side order</option>
+            </select> 
+		</div>
+        <div class="formfield">
+			<label>desert choice: <label>
+            <select v-model="choice_desert">
+                <option value="167">Apple Pie</option>
+                <option value="266">Sundae</option>
+                <option value="75">Fruit Cup</option>
+                <option value="0">no dessert</option>
+            </select> 
+		</div>
+		<div id="result">
+			<div>Your total Calorie count: {{treat_total}}</div>
+		</div>
+	</div>
+	
+	<script>
+	var app = new Vue({
+		el: '#app',
+		data:{
+			choice_burger:0,
+			choice_drink:0,
+			choice_side:0,
+            choice_desert:0
+		},
+		computed:{
+			treat_total:function(){
+				return (Number(this.choice_burger) + 
+				Number(this.choice_drink) + 
+				Number(this.choice_side)+
+                Number(this.choice_desert));	
+			}
+		}
+	});
+	
+	</script>
+	<!--
+		v-model will allow you to quickly bind form elements to the data property.
+		Make sure to set a default value!
+		The Computed property can be used like data, except for values that are calculated from data properties.
+		In this example 'treat_total' is computed from data properties, and 'is_happy' is computed from 'treat_total'.
+		
+		ASYNCHRONOUS LEARNING EXERCISE : J1
+		- Find any J1 problem
+		- Imagine an interface that allows the user to enter data on the webpage
+		- Build using v-model and computed properties!
+	
+	-->
+	</body>
+</html>
