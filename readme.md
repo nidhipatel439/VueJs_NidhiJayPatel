@@ -1,2 +1,1 @@
-Name: Nidhi Jay Patel
-Student no: N01542751
+Name: Nidhi Jay Patel (N01542751)
